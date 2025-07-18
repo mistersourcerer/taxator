@@ -5,7 +5,7 @@ RSpec.describe Taxator::Purchase do
     Taxator::PurchaseItem.new(
       amount: 1,
       name: "imported bottle of perfume",
-      price: BigDecimal(27.99.to_s),
+      price: BigDecimal(27.99.to_s)
     )
   }
 
@@ -13,7 +13,7 @@ RSpec.describe Taxator::Purchase do
     Taxator::PurchaseItem.new(
       amount: 1,
       name: "bottle of perfume",
-      price: BigDecimal(18.99.to_s),
+      price: BigDecimal(18.99.to_s)
     )
   }
 
@@ -21,7 +21,7 @@ RSpec.describe Taxator::Purchase do
     Taxator::PurchaseItem.new(
       amount: 1,
       name: "packet of headache pills",
-      price: BigDecimal(9.75.to_s),
+      price: BigDecimal(9.75.to_s)
     )
   }
 
@@ -29,13 +29,15 @@ RSpec.describe Taxator::Purchase do
     Taxator::PurchaseItem.new(
       amount: 3,
       name: "imported box of chocolates",
-      price: BigDecimal(11.25.to_s),
+      price: BigDecimal(11.25.to_s)
     )
   }
 
-  subject(:purchase) { described_class.new([
-    imported, common, exempt, imported_exempt
-  ]) }
+  subject(:purchase) {
+    described_class.new([
+      imported, common, exempt, imported_exempt
+    ])
+  }
 
   describe "#taxes" do
     it "sums up all the taxes" do
