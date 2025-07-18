@@ -7,7 +7,12 @@ module Taxator
     private attr_reader :io
 
     def initialize(str)
-      @io = (!str.is_a?(IO) && !str.is_a?(StringIO)) ? StringIO.new(str) : str
+      @io =
+        if !str.is_a?(IO) && !str.is_a?(StringIO)
+          File.exist?(str) ? File.open(str, "r") : StringIO.new(str)
+        else
+          str
+        end
     end
 
     def read

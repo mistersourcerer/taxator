@@ -22,4 +22,22 @@ RSpec.describe Taxator::Reader do
       ]
     end
   end
+
+  context "happy path" do
+    describe "from file" do
+      it "reads items from a file" do
+        items = reader.new(fixture_path("mixed")).read
+
+        expect(items.size).to eq 6
+        expect(items.map(&:name)).to eq [
+          "music CD",
+          "chocolate bar",
+          "imported bottle of perfume",
+          "bottle of perfume",
+          "packet of headache pills",
+          "imported boxes of chocolates"
+        ]
+      end
+    end
+  end
 end
