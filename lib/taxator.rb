@@ -9,3 +9,6 @@ module Taxator
 end
 
 $LOAD_PATH.unshift(Taxator::LIB_ROOT) unless $LOAD_PATH.include?(Taxator::LIB_ROOT)
+
+require "bigdecimal"
+require "bigdecimal/util"
