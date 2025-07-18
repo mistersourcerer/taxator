@@ -5,5 +5,9 @@ require "bundler/setup"
 require "taxator"
 require "debug"
 
+require "rspec"
+require File.expand_path("../../spec/spec_helper", __FILE__)
+include Taxator::SpecHelper
+
 require "irb"
 IRB.start(__FILE__)
