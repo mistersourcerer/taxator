@@ -1,8 +1,7 @@
 require "stringio"
+require "taxator/purchase_item"
 
 module Taxator
-  PurchaseItem = Struct.new("PurchaseItem", :amount, :name, :price)
-
   class Reader
     private attr_reader :io
 
