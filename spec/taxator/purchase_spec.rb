@@ -71,7 +71,7 @@ RSpec.describe Taxator::Purchase do
         {item: imported, subtotal: BigDecimal(32.19.to_s)},
         {item: common, subtotal: BigDecimal(20.89.to_s)},
         {item: exempt, subtotal: BigDecimal(9.75.to_s)},
-        {item: imported_exempt, subtotal: BigDecimal(35.55.to_s)},
+        {item: imported_exempt, subtotal: BigDecimal(35.55.to_s)}
       ]
     end
   end

@@ -14,6 +14,7 @@ module Taxator
       end
 
       private
+
       def money(bigdecimal)
         "%.2f" % bigdecimal
       end

@@ -8,7 +8,7 @@ module Taxator
 
     class << self
       def from_file(file_path)
-        raise "file not found: #{file_path}" if(!File.exist?(file_path))
+        raise "file not found: #{file_path}" if !File.exist?(file_path)
         new Taxator::Reader.new(file_path).read
       end
     end

@@ -1,5 +1,5 @@
 require "debug"
-ROOT = File.expand_path("../..", __FILE__) 
+ROOT = File.expand_path("../..", __FILE__)
 
 RSpec.describe "CLI happy path" do
   def path_to(file)

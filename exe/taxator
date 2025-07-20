@@ -4,12 +4,12 @@ require_relative "../lib/taxator"
 require "taxator/formatter"
 require "taxator/purchase"
 
-unless(path = ARGV.first)
+unless (path = ARGV.first)
   puts "Usage: taxator [PURCHASE_FILE_PATH]"
   exit
 end
 
-unless(File.exist?(path))
+unless File.exist?(path)
   raise "File: #{path} not found (expected a valid \"purchase\" file)"
 end
 
