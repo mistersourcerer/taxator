@@ -64,4 +64,15 @@ RSpec.describe Taxator::Purchase do
       expect(purchase.total).to eq 98.38
     end
   end
+
+  describe "#subtotals" do
+    it "separates subtotals per item" do
+      expect(purchase.subtotals).to eq [
+        {item: imported, subtotal: BigDecimal(32.19.to_s)},
+        {item: common, subtotal: BigDecimal(20.89.to_s)},
+        {item: exempt, subtotal: BigDecimal(9.75.to_s)},
+        {item: imported_exempt, subtotal: BigDecimal(35.55.to_s)},
+      ]
+    end
+  end
 end

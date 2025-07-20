@@ -1,3 +1,4 @@
+require "taxator/purchase_item"
 require "taxator/reader"
 require "taxator/taxes"
 
@@ -22,8 +23,15 @@ module Taxator
 
     def total
       @total ||= items.sum do |item|
-        item.amount * (Taxes.new(item).calculate + item.price)
+        @subtotals ||= []
+        subtotal = item.amount * (Taxes.new(item).calculate + item.price)
+        @subtotals << {item: item, subtotal: subtotal}
+        subtotal
       end
+    end
+
+    def subtotals
+      @subtotals ||= total && @subtotals
     end
   end
 end
