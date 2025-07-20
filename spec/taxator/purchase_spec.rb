@@ -33,6 +33,20 @@ RSpec.describe Taxator::Purchase do
     )
   }
 
+  describe "#from_file" do
+    it "creates a purchase based on a purchase file" do
+      purchase = described_class.from_file(fixture_path("input3"))
+
+      expect(purchase.subtotals.map { |tuple| tuple[:item].name }).to eq([
+        "imported bottle of perfume",
+        "bottle of perfume",
+        "packet of headache pills",
+        "imported boxes of chocolates"
+      ])
+      expect(purchase.total).to eq BigDecimal(98.38.to_s)
+    end
+  end
+
   subject(:purchase) {
     described_class.new([
       imported, common, exempt, imported_exempt
