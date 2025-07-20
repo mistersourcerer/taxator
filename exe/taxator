@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/taxator"
+require "taxator/formatter"
+require "taxator/purchase"
+
+unless(path = ARGV.first)
+  puts "Usage: taxator [PURCHASE_FILE_PATH]"
+  exit
+end
+
+unless(File.exist?(path))
+  raise "File: #{path} not found (expected a valid \"purchase\" file)"
+end
+
+purchase = Taxator::Purchase.from_file(path)
+formatter = Taxator::Formatter::CLI.new
+puts formatter.call(purchase)
